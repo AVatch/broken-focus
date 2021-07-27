@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="onPresentSecondaryModal()">Another one</ion-button>
+</ion-content>
+
+<ion-footer>
+  <ion-item class="float-input">
+    <ion-button fill="clear" slot="start" (click)="onPickEmoji($event)">
+      <ion-label>😬</ion-label>
+    </ion-button>
+
+    <ion-input placeholder="Add a response..."></ion-input>
+  </ion-item>
+</ion-footer>

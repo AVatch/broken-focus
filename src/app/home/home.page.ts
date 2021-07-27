@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ModalController, IonRouterOutlet } from '@ionic/angular';
+import { ModalPage } from '../modal/modal.page';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  constructor(
+    private routerOutlet: IonRouterOutlet,
+    private modalCtrl: ModalController
+  ) {}
 
-  constructor() {}
+  async present() {
+    const modal = await this.modalCtrl.create({
+      presentingElement: this.routerOutlet.nativeEl,
+      component: ModalPage,
+      cssClass: ['app-modal'],
+      backdropDismiss: false,
+      keyboardClose: false,
+      swipeToClose: false,
+    });
 
+    modal.present();
+  }
 }
